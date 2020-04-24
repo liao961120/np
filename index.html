@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-browser NotePad</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>In-browser NotePad</h1>
+        <p>
+            Paste the text below to the address bar in your brower to open a <b>NotePad</b> page.
+            <br>
+            After entering the NotePad page, you can save that page to the bookmark!
+        </p>
+
+        <br>
+        <div>
+            <!-- <input id="notepad" value=""> -->
+            <textarea id="notepad" rows="6" cols="80"></textarea>
+
+            <br>
+            <!-- Trigger -->
+            <button id="copy" class="btn" data-clipboard-target="#notepad">
+                <img src="https://clipboardjs.com/assets/images/clippy.svg" alt="Copy to clipboard" style="height:1em;">
+                Copy Text
+            </button>
+        </div>
+        
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    window.onload = function () {
+        new ClipboardJS('.btn');
+
+        var code = document.querySelector('#notepad');
+        code.textContent = `data:text/html;charset=utf-8, <title>NotePad</title><body OnLoad='document.body.focus();'  contenteditable style="font-size:43px;line-height:1.4;font-weight:700;font-family:Monego,monospace;max-width:95%;margin:0 auto;padding:1rem;background-color:rgb(240,240,235);color:rgb(40,40,40);" spellcheck="false">`;
+
+        var btn = document.querySelector('#copy');
+        btn.click();
+    }
+</script>
+
+<style>
+    .container {
+        display: block;
+        width: 93%;
+        margin: 8px auto;
+    }
+</style>
+
+</html>
