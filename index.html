@@ -41,8 +41,12 @@
         var code = document.querySelector('#notepad');
         code.textContent = `data:text/html;charset=utf-8, <title>NotePad</title><body OnLoad='document.body.focus();'  contenteditable style="font-size:43px;line-height:1.4;font-weight:700;font-family:Monego,monospace;max-width:95%;margin:0 auto;padding:1rem;background-color:rgb(240,240,235);color:rgb(40,40,40);" spellcheck="false">`;
 
-        var btn = document.querySelector('#copy');
-        btn.click();
+        
+        setTimeout(function(){ 
+            var btn = document.querySelector('#copy'); 
+            btn.click();
+            }, 800);
+        
     }
 </script>
 
